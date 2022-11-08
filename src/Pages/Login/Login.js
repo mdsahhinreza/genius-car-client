@@ -5,7 +5,9 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+
   const navigate = useNavigate();
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,6 +22,7 @@ const Login = () => {
       .catch((err) => console.console.error(err));
     form.reset();
   };
+
   return (
     <div className="hero w-full my-5">
       <div className="hero-content gap-5 grid md:grid-cols-2 flex-col lg:flex-row">

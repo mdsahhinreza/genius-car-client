@@ -10,7 +10,10 @@ const Header = () => {
       <li className="font-semibold">
         <Link to={"/"}>Home</Link>
         {user ? (
-          <Link onClick={logOut()}>LogOut</Link>
+          <>
+            <Link to={"/orders"}>Orders</Link>
+            <Link onClick={logOut}>LogOut</Link>
+          </>
         ) : (
           <Link to={"/login"}>Login</Link>
         )}
@@ -53,9 +56,15 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <Link>
-          <button className="btn btn-outline btn-warning">Appoinment</button>
+          <button className="btn btn-outline btn-warning mr-2">
+            Appoinment
+          </button>
         </Link>
-        {user ? <Link>{user.email}</Link> : "Not Loged"}
+        {user ? (
+          <Link>{user.displayName ? user.displayName : user.email}</Link>
+        ) : (
+          "Not Loged"
+        )}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import img from "../../assets/images/login/login.svg";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, logOut, logIn } = useContext(AuthContext);
 
   const updateUserData = (name, email, password) => {
     updateUser(name)
@@ -24,8 +24,8 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         updateUserData(name);
-        // logOut();
-        // logIn(email, password);
+        logOut();
+        logIn(email, password);
         form.reset();
       })
       .catch((err) => console.error(err));
